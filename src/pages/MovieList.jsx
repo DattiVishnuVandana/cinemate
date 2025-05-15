@@ -2,6 +2,6 @@ import React from 'react'
 
 export const MovieList = () => {
   return (
-    <div>MovieList</div>
+    <div className="text-3xl">MovieList</div>
   )
 }
