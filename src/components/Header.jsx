@@ -74,13 +74,13 @@ const [darkMode,setDarkMode]=useState(JSON.parse(localStorage.getItem("darkMode"
         </li>
     
         <li>
-          <NavLink to="/movie/popular" className= {({isActive})=>isActive? activeC:inactiveC}>Popular</NavLink>
+          <NavLink to="/movies/popular" className= {({isActive})=>isActive? activeC:inactiveC}>Popular</NavLink>
         </li>
         <li>
-          <NavLink to="/movie/top" className= {({isActive})=>isActive? activeC :inactiveC}>TopRated</NavLink>
+          <NavLink to="/movies/top" className= {({isActive})=>isActive? activeC :inactiveC}>TopRated</NavLink>
         </li>
             <li>
-          <NavLink to="/movie/upcoming" className= {({isActive})=>isActive? activeC:inactiveC} >Upcoming</NavLink>
+          <NavLink to="/movies/upcoming" className= {({isActive})=>isActive? activeC:inactiveC} >Upcoming</NavLink>
         </li>
       </ul>
     </div>
