@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Backup from "../assets/images/backup.jpeg"
 import { useTitle } from '../hooks/useTitle';
-  
+  import Load from "../assets/giphy.gif"
 
 export const MovieDetail = () => {
   const params=useParams();
 const  [movie,setMovie]=useState([])
 const path=movie.poster_path?`https://image.tmdb.org/t/p/w500/${movie.poster_path}`:Backup
   useTitle(movie.title )
+  const [loading,setLoading]=useState(false)
 
 useEffect(()=>{
   async function fetchMovie() {
+    setLoading(true)
     const res=await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=b80d59c33d6d57ed9c7e3713f91c188a`)
     const json=await res.json();
+    setLoading(false)
     setMovie(json)
     
   }
@@ -25,7 +28,11 @@ useEffect(()=>{
 })
   return (
  <main>
-
+{loading && (
+    <div className="flex justify-center items-center h-screen">
+      <img src={Load} alt="loading movie data..." className="w-32 h-32" />
+    </div>
+  ) }
  <section className='flex justify-around flex-wrap py-5'>
   <div className='max-w-sm'>
     <img className='rounded' src={path} alt={movie.title}/>
