@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Backup from "../assets/images/backup.jpeg"
+import { useTitle } from '../hooks/useTitle';
   
 
 export const MovieDetail = () => {
   const params=useParams();
 const  [movie,setMovie]=useState([])
 const path=movie.poster_path?`https://image.tmdb.org/t/p/w500/${movie.poster_path}`:Backup
-  
+  useTitle(movie.title )
+
 useEffect(()=>{
   async function fetchMovie() {
     const res=await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=b80d59c33d6d57ed9c7e3713f91c188a`)
@@ -17,6 +19,10 @@ useEffect(()=>{
   }
   fetchMovie();
 },[])
+
+useEffect(()=>{
+  document.title=`${movie.title}/cinimate`
+})
   return (
  <main>
 

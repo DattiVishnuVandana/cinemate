@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PageNot from '../assets/pagenotfound.png'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/Button'
 
 export const PageNotFound = () => {
   
+useEffect(()=>{
+  document.title=`page not found/cinimate`
+})
+
 const navigate=useNavigate()
 const handleBut=()=>
    navigate("/")

@@ -1,10 +1,16 @@
 
+import { useEffect } from "react"
 import { Card } from "../components/Card"
 import { useFetch } from "../hooks/useFetch"
-export const MovieList = ({apiPath}) => {
+import { useTitle } from "../hooks/useTitle"
+export const MovieList = ({apiPath,title}) => {
   
  const {data:movies}=useFetch(apiPath)
-  return (
+// useEffect(()=>{
+//   document.title=`${title}/cinimate`
+// }) 
+useTitle(`${title}`)
+ return (
 <main>
   <section className="max-w-7xl mx-auto py-7">
     <div className='flex justify-start flex-wrap other:justify-evenly'>
