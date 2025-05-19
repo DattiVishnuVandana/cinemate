@@ -10,6 +10,7 @@ export const Search = ({apiPath}) => {
   const [searchParams]=useSearchParams();
   const queryTerm=searchParams.get("q")
   const {data:movies}=useFetch(apiPath,queryTerm)
+  //eslint-disable-next-Line
   const pageTitle=useTitle(`Search results for ${queryTerm}`)//pagetitle ust for readability
   // useEffect(()=>{
   //   document.title=`Search result for ${queryTerm}/cinimate`

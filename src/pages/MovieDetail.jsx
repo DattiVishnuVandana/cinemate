@@ -21,7 +21,7 @@ useEffect(()=>{
     
   }
   fetchMovie();
-},[])
+},[params.id])
 
 useEffect(()=>{
   document.title=`${movie.title}/cinimate`
